@@ -1,7 +1,7 @@
-package com.lowtechsoft.asmjson.json;
+package com.lowtechsoft.transfer.json;
 
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +23,16 @@ public class JSONReader {
         }
     }
 
+    private void indexInc(){
+        if(index < total - 1){
+            index++;
+        }
+    }
+
+    private boolean isTail(){
+        return total - index == 1;
+    }
+
     private void readTrim(){
         char c;
         boolean trim = false;
@@ -36,10 +46,11 @@ public class JSONReader {
                     trim = true;
                     break;
                 default:
+                    trim = false;
                     break;
             }
             if(trim){
-                index++;
+                indexInc();
             }
             else{
                 break;
@@ -56,7 +67,7 @@ public class JSONReader {
     }
 
     private String nextChars(int size) throws Exception{
-        cursor = index + 4;
+        cursor = index + size;
         if(cursor >= total) {
             throwJsonReadError(null);
         }
@@ -68,6 +79,7 @@ public class JSONReader {
         if(!"null".equals(str)){
             throwJsonReadError("read null failed");
         }
+        index += 4;
         return null;
     }
 
@@ -80,6 +92,7 @@ public class JSONReader {
                 char pre = json.charAt(cursor-1);
                 if(pre != '\\'){
                     match = true;
+                    cursor++;
                     break;
                 }
             }
@@ -96,9 +109,19 @@ public class JSONReader {
         StringBuilder sb = new StringBuilder();
         boolean match = false;
         int dotCount = 0;
+        int exponentCount = 0;
         for(cursor = index; cursor < total; cursor++){
             char c = json.charAt(cursor);
             switch (c){
+                case '+':
+                case '-':
+                    if(cursor == index || json.charAt(cursor-1) == 'E'){
+                        sb.append(c);
+                    }
+                    else{
+                        throwJsonReadError("read Number Error");
+                    }
+                    break;
                 case '0':
                 case '1':
                 case '2':
@@ -111,13 +134,21 @@ public class JSONReader {
                 case '9':
                     sb.append(c);
                     break;
+                case 'E':
+                    exponentCount++;
+                    if(exponentCount <= 1){
+                        sb.append(c);
+                    }
+                    else{
+                        throwJsonReadError("read Number Error");
+                    }
                 case '.':
                     dotCount++;
                     if(dotCount <= 1){
                         sb.append(c);
                     }
                     else{
-                        match = true;
+                        throwJsonReadError("read Number Error");
                     }
                     break;
                 default:
@@ -131,6 +162,7 @@ public class JSONReader {
         if(!match){
             throwJsonReadError("read Number Error");
         }
+        index = cursor;
         return Double.parseDouble(sb.toString());
     }
 
@@ -139,33 +171,58 @@ public class JSONReader {
         if(!"true".equals(str)){
             throwJsonReadError("read true failed");
         }
+        index += 4;
         return true;
     }
 
     private boolean readFalse() throws Exception{
         String str = nextChars(5);
         if(!"false".equals(str)){
-            throwJsonReadError("read true failed");
+            throwJsonReadError("read false failed");
         }
+        index += 5;
         return false;
     }
 
     private List<Object> readList() throws Exception{
         List<Object> list = new ArrayList<>();
-        return null;
+        indexInc();
+        readTrim();
+        char c = json.charAt(index);
+        while(c != ']'){
+            list.add(readObject());
+            c = json.charAt(index);
+        }
+        indexInc();
+        return list;
     }
 
     private Map<String,Object> readMap() throws Exception{
-        return null;
+        Map<String, Object> map = new HashMap<>();
+        indexInc();
+        readTrim();
+        char c = json.charAt(index);
+        while (c != '}'){
+            readTrim();
+            String key = readString();
+            readTrim();
+            char sep = json.charAt(index);
+            if(sep != ':'){
+                throwJsonReadError("Parse Object Error");
+            }
+            indexInc();
+            readTrim();
+            Object val = readObject();
+            map.put(key,val);
+            c = json.charAt(index);
+        }
+        indexInc();
+        return map;
     }
 
-    public Object parse() throws Exception{
-        if(total == 0)
-            return null;
-
+    private Object readObject() throws Exception{
         readTrim();
         JSONObjectType type = JSONObjectType.parse(json.charAt(index));
-
         Object ret = null;
         switch (type){
             case NULL:
@@ -194,7 +251,22 @@ public class JSONReader {
             default:
                 break;
         }
+        readTrim();
+        if(index == total - 1){
+            return ret;
+        }
+        char c = json.charAt(index);
+        if(c == ','){
+            indexInc();
+            readTrim();
+        }
         return ret;
+    }
+
+    public Object parse() throws Exception{
+        if(total == 0)
+            return null;
+        return readObject();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.lowtechsoft.asmjson;
+package com.lowtechsoft.transfer;
 
 public class KeyValuePair {
     private final String key;

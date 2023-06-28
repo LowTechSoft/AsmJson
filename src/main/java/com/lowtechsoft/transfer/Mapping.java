@@ -1,4 +1,4 @@
-package com.lowtechsoft.asmjson;
+package com.lowtechsoft.transfer;
 
 @FunctionalInterface
 public interface Mapping {

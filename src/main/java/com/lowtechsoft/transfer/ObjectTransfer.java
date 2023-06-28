@@ -1,6 +1,6 @@
-package com.lowtechsoft.asmjson;
+package com.lowtechsoft.transfer;
 
-public class AJTransfer {
+public class ObjectTransfer {
 
     public static String stringify(Object obj) throws Exception{
         return null;

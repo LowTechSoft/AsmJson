@@ -5,6 +5,8 @@ plugins {
 group = 'com.lowtechsoft'
 version = '1.0-SNAPSHOT'
 
+def jdkBin = 'D:\\Program Files\\Java\\openjdk8u362-b09\\bin'
+
 repositories {
     mavenCentral()
 }
@@ -14,6 +16,40 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
-test {
-    useJUnitPlatform()
+task javapTask(type: JavaExec) {
+    main = 'sun.tools.javap.Main'
+    // 指定javap的主类
+
+    classpath = sourceSets.main.runtimeClasspath
+    // 使用源代码集的运行时类路径
+
+    args 'your_class_file'
+    // 指定要执行javap的class文件，替换成你的实际类文件名称
+
+    // 如果需要传递其他参数给javap命令，可以使用下面的行
+    // args '-option1', '-option2', 'your_class_file'
+}
+
+import org.gradle.api.internal.tasks.userinput.UserInputHandler;
+task javap(type:Exec, group:'local'){
+    ext.javap_class_name = 'com.lowtechsoft.transfer.model.OrgInfo'
+    doFirst {
+        def handler = services.get(UserInputHandler)
+        ext.javap_class_name = handler.askQuestion('请输入类的全名', '')
+
+        commandLine 'javap', '-c', '-private', '-verbose', '-l', '-constants', ext.javap_class_name
+    }
+
+    workingDir file("build/classes/java/test")
+    standardOutput = new ByteArrayOutputStream()
+    ext.output = {
+        return standardOutput.toString()
+    }
+
+    doLast {
+        def path = 'src/test/java/' + ext.javap_class_name.replaceAll('\\.', '/') + '.bc';
+        new FileOutputStream(path).withStream{outputStream->
+            standardOutput.writeTo(outputStream);
+        }
+    }
 }

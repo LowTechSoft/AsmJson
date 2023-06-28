@@ -1,4 +1,4 @@
-package com.lowtechsoft.asmjson.json;
+package com.lowtechsoft.transfer.json;
 
 enum JSONObjectType {
     ERROR,
@@ -42,6 +42,8 @@ enum JSONObjectType {
             case '8':
             case '9':
             case '.':
+            case '+':
+            case '-':
                 ret = NUMBER;
                 break;
         }

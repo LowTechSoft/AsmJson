@@ -1,0 +1,168 @@
+Classfile /E:/LTS/asmjson/build/classes/java/test/com/lowtechsoft/transfer/model/TestModel.class
+  Last modified 2023-5-26; size 1779 bytes
+  MD5 checksum a1eb968359b1ba1890fea178a2e57832
+  Compiled from "TestModel.java"
+public class com.lowtechsoft.transfer.model.TestModel
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #7.#38         // java/lang/Object."<init>":()V
+   #2 = Class              #39            // com/lowtechsoft/transfer/model/DoctorDeptInfo
+   #3 = Methodref          #2.#38         // com/lowtechsoft/transfer/model/DoctorDeptInfo."<init>":()V
+   #4 = Fieldref           #6.#40         // com/lowtechsoft/transfer/model/TestModel.manager:Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+   #5 = Fieldref           #6.#41         // com/lowtechsoft/transfer/model/TestModel.users:Ljava/util/Deque;
+   #6 = Class              #42            // com/lowtechsoft/transfer/model/TestModel
+   #7 = Class              #43            // java/lang/Object
+   #8 = Utf8               users
+   #9 = Utf8               Ljava/util/Deque;
+  #10 = Utf8               Signature
+  #11 = Utf8               Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;
+  #12 = Utf8               manager
+  #13 = Utf8               Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+  #14 = Utf8               Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               LineNumberTable
+  #19 = Utf8               LocalVariableTable
+  #20 = Utf8               this
+  #21 = Utf8               Lcom/lowtechsoft/transfer/model/TestModel;
+  #22 = Utf8               test
+  #23 = Utf8               getManager
+  #24 = Utf8               ()Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+  #25 = Utf8               ()Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;
+  #26 = Utf8               setManager
+  #27 = Utf8               (Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;)V
+  #28 = Utf8               LocalVariableTypeTable
+  #29 = Utf8               (Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;)V
+  #30 = Utf8               getUsers
+  #31 = Utf8               ()Ljava/util/Deque;
+  #32 = Utf8               ()Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;
+  #33 = Utf8               setUsers
+  #34 = Utf8               (Ljava/util/Deque;)V
+  #35 = Utf8               (Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;)V
+  #36 = Utf8               SourceFile
+  #37 = Utf8               TestModel.java
+  #38 = NameAndType        #15:#16        // "<init>":()V
+  #39 = Utf8               com/lowtechsoft/transfer/model/DoctorDeptInfo
+  #40 = NameAndType        #12:#13        // manager:Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+  #41 = NameAndType        #8:#9          // users:Ljava/util/Deque;
+  #42 = Utf8               com/lowtechsoft/transfer/model/TestModel
+  #43 = Utf8               java/lang/Object
+{
+  private java.util.Deque<com.lowtechsoft.transfer.model.UserInfo> users;
+    descriptor: Ljava/util/Deque;
+    flags: ACC_PRIVATE
+    Signature: #11                          // Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;
+
+  private com.lowtechsoft.transfer.model.DoctorDeptInfo<com.lowtechsoft.transfer.model.HospitalInfo, com.lowtechsoft.transfer.model.DeptInfo> manager;
+    descriptor: Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+    flags: ACC_PRIVATE
+    Signature: #14                          // Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;
+
+  public com.lowtechsoft.transfer.model.TestModel();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 7: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/TestModel;
+
+  public void test();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: new           #2                  // class com/lowtechsoft/transfer/model/DoctorDeptInfo
+         4: dup
+         5: invokespecial #3                  // Method com/lowtechsoft/transfer/model/DoctorDeptInfo."<init>":()V
+         8: putfield      #4                  // Field manager:Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+        11: return
+      LineNumberTable:
+        line 14: 0
+        line 15: 11
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      12     0  this   Lcom/lowtechsoft/transfer/model/TestModel;
+
+  public com.lowtechsoft.transfer.model.DoctorDeptInfo<com.lowtechsoft.transfer.model.HospitalInfo, com.lowtechsoft.transfer.model.DeptInfo> getManager();
+    descriptor: ()Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #4                  // Field manager:Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+         4: areturn
+      LineNumberTable:
+        line 18: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/TestModel;
+    Signature: #25                          // ()Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;
+
+  public void setManager(com.lowtechsoft.transfer.model.DoctorDeptInfo<com.lowtechsoft.transfer.model.HospitalInfo, com.lowtechsoft.transfer.model.DeptInfo>);
+    descriptor: (Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #4                  // Field manager:Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+         5: return
+      LineNumberTable:
+        line 22: 0
+        line 23: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/lowtechsoft/transfer/model/TestModel;
+            0       6     1 manager   Lcom/lowtechsoft/transfer/model/DoctorDeptInfo;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0       6     1 manager   Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;
+    Signature: #29                          // (Lcom/lowtechsoft/transfer/model/DoctorDeptInfo<Lcom/lowtechsoft/transfer/model/HospitalInfo;Lcom/lowtechsoft/transfer/model/DeptInfo;>;)V
+
+  public java.util.Deque<com.lowtechsoft.transfer.model.UserInfo> getUsers();
+    descriptor: ()Ljava/util/Deque;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #5                  // Field users:Ljava/util/Deque;
+         4: areturn
+      LineNumberTable:
+        line 26: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/TestModel;
+    Signature: #32                          // ()Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;
+
+  public void setUsers(java.util.Deque<com.lowtechsoft.transfer.model.UserInfo>);
+    descriptor: (Ljava/util/Deque;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #5                  // Field users:Ljava/util/Deque;
+         5: return
+      LineNumberTable:
+        line 30: 0
+        line 31: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/lowtechsoft/transfer/model/TestModel;
+            0       6     1 users   Ljava/util/Deque;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0       6     1 users   Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;
+    Signature: #35                          // (Ljava/util/Deque<Lcom/lowtechsoft/transfer/model/UserInfo;>;)V
+}
+SourceFile: "TestModel.java"

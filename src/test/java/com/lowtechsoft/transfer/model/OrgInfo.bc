@@ -1,0 +1,166 @@
+Classfile /E:/LTS/asmjson/build/classes/java/test/com/lowtechsoft/transfer/model/OrgInfo.class
+  Last modified 2023-5-25; size 942 bytes
+  MD5 checksum 9c969d2f85646c6362a2944ac84da7ff
+  Compiled from "OrgInfo.java"
+public class com.lowtechsoft.transfer.model.OrgInfo
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #6.#31         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #5.#32         // com/lowtechsoft/transfer/model/OrgInfo.id:I
+   #3 = Fieldref           #5.#33         // com/lowtechsoft/transfer/model/OrgInfo.name:Ljava/lang/String;
+   #4 = Fieldref           #5.#34         // com/lowtechsoft/transfer/model/OrgInfo.address:Ljava/lang/String;
+   #5 = Class              #35            // com/lowtechsoft/transfer/model/OrgInfo
+   #6 = Class              #36            // java/lang/Object
+   #7 = Utf8               id
+   #8 = Utf8               I
+   #9 = Utf8               name
+  #10 = Utf8               Ljava/lang/String;
+  #11 = Utf8               address
+  #12 = Utf8               <init>
+  #13 = Utf8               ()V
+  #14 = Utf8               Code
+  #15 = Utf8               LineNumberTable
+  #16 = Utf8               LocalVariableTable
+  #17 = Utf8               this
+  #18 = Utf8               Lcom/lowtechsoft/transfer/model/OrgInfo;
+  #19 = Utf8               getId
+  #20 = Utf8               ()I
+  #21 = Utf8               setId
+  #22 = Utf8               (I)V
+  #23 = Utf8               getName
+  #24 = Utf8               ()Ljava/lang/String;
+  #25 = Utf8               setName
+  #26 = Utf8               (Ljava/lang/String;)V
+  #27 = Utf8               getAddress
+  #28 = Utf8               setAddress
+  #29 = Utf8               SourceFile
+  #30 = Utf8               OrgInfo.java
+  #31 = NameAndType        #12:#13        // "<init>":()V
+  #32 = NameAndType        #7:#8          // id:I
+  #33 = NameAndType        #9:#10         // name:Ljava/lang/String;
+  #34 = NameAndType        #11:#10        // address:Ljava/lang/String;
+  #35 = Utf8               com/lowtechsoft/transfer/model/OrgInfo
+  #36 = Utf8               java/lang/Object
+{
+  private int id;
+    descriptor: I
+    flags: ACC_PRIVATE
+
+  private java.lang.String name;
+    descriptor: Ljava/lang/String;
+    flags: ACC_PRIVATE
+
+  private java.lang.String address;
+    descriptor: Ljava/lang/String;
+    flags: ACC_PRIVATE
+
+  public com.lowtechsoft.transfer.model.OrgInfo();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+
+  public int getId();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field id:I
+         4: ireturn
+      LineNumberTable:
+        line 11: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+
+  public void setId(int);
+    descriptor: (I)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: putfield      #2                  // Field id:I
+         5: return
+      LineNumberTable:
+        line 15: 0
+        line 16: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+            0       6     1    id   I
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #3                  // Field name:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+
+  public void setName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #3                  // Field name:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 23: 0
+        line 24: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+            0       6     1  name   Ljava/lang/String;
+
+  public java.lang.String getAddress();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #4                  // Field address:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 27: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+
+  public void setAddress(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #4                  // Field address:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 31: 0
+        line 32: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/lowtechsoft/transfer/model/OrgInfo;
+            0       6     1 address   Ljava/lang/String;
+}
+SourceFile: "OrgInfo.java"

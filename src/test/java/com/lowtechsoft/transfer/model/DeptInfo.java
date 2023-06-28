@@ -1,4 +1,4 @@
-package com.lowtechsoft.asmjson.model;
+package com.lowtechsoft.transfer.model;
 
 import java.util.List;
 
